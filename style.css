@@ -1,0 +1,23 @@
+#grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+    border-width: 1px;
+    border-style: solid;
+
+}
+
+.row-container {
+    display: flex;
+    align-items: stretch;
+    margin: 0;
+}
+
+.square {
+    border-width: 1px;
+    border-style: solid;
+    aspect-ratio: 1/1;
+    flex: 1;
+}
