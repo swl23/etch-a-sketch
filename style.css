@@ -25,3 +25,12 @@
 .hovered-square {
     background-color: black;
 }
+
+#reset-button {
+    display: block;
+    margin: auto;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
