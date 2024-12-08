@@ -77,3 +77,12 @@ function createNewGridContainer(oldGridSize) {
     newGridContainer.setAttribute('width', oldGridSize[1]);
     body.append(newGridContainer);
 }
+
+function getRandomBoxColor() {
+    const rgb = [];
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+    rgb.push(r, g ,b);
+    return rgb;
+}
