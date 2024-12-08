@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
+
     const defaultGridSize = 16;
     for (i = 0; i < defaultGridSize; i++) {
         createRow(i, defaultGridSize)
@@ -25,13 +26,16 @@ function createRow(currentRow, totalRowCount) {
     for (j = 0; j < totalRowCount; j++) {
         const newBox = document.createElement('div');
         newBox.setAttribute('class', 'square');
+        newBox.style.backgroundColor = 'rgba(0, 0, 0, 0)';
         newBox.addEventListener('mouseover', () => {
-            let r = Math.floor(Math.random() * 255);
-            let g = Math.floor(Math.random() * 255);
-            let b = Math.floor(Math.random() * 255);
-            const colorString = 'rgb(' + r + ',' + g + ',' + b + ')';
-            newBox.style.backgroundColor = colorString;
-        }, {once: true});
+            let currentBoxRGB = newBox.style.backgroundColor;
+            let currentOpacity = Number((currentBoxRGB.slice(14)).replace(')', ''));
+            if (currentOpacity < 1.0) {
+                let newOpacity = (currentOpacity + 0.1);
+                let newBoxRGB = 'rgba(0, 0, 0, ' + newOpacity + ')';
+                newBox.style.backgroundColor = newBoxRGB;
+            }
+        });
         newRow.appendChild(newBox)
     }
     grid.appendChild(newRow);
