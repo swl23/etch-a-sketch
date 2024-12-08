@@ -26,7 +26,11 @@ function createRow(currentRow, totalRowCount) {
         const newBox = document.createElement('div');
         newBox.setAttribute('class', 'square');
         newBox.addEventListener('mouseover', () => {
-            newBox.setAttribute('class', 'square hovered-square');
+            let r = Math.floor(Math.random() * 255);
+            let g = Math.floor(Math.random() * 255);
+            let b = Math.floor(Math.random() * 255);
+            const colorString = 'rgb(' + r + ',' + g + ',' + b + ')';
+            newBox.style.backgroundColor = colorString;
         }, {once: true});
         newRow.appendChild(newBox)
     }
@@ -76,13 +80,4 @@ function createNewGridContainer(oldGridSize) {
     newGridContainer.setAttribute('height', oldGridSize[0]);
     newGridContainer.setAttribute('width', oldGridSize[1]);
     body.append(newGridContainer);
-}
-
-function getRandomBoxColor() {
-    const rgb = [];
-    let r = Math.floor(Math.random() * 255);
-    let g = Math.floor(Math.random() * 255);
-    let b = Math.floor(Math.random() * 255);
-    rgb.push(r, g ,b);
-    return rgb;
 }
