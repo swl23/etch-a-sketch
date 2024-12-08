@@ -29,11 +29,14 @@ function createRow(currentRow, totalRowCount) {
         newBox.style.backgroundColor = 'rgba(0, 0, 0, 0)';
         newBox.addEventListener('mouseover', () => {
             let currentBoxRGB = newBox.style.backgroundColor;
-            let currentOpacity = Number((currentBoxRGB.slice(14)).replace(')', ''));
-            if (currentOpacity < 1.0) {
-                let newOpacity = (currentOpacity + 0.1);
-                let newBoxRGB = 'rgba(0, 0, 0, ' + newOpacity + ')';
-                newBox.style.backgroundColor = newBoxRGB;
+            if (currentBoxRGB === 'rgb(0, 0, 0)') {}
+            else {
+                let currentOpacity = parseFloat((currentBoxRGB.slice(14)).replace(')', ''));
+                if (currentOpacity < 1.0) {
+                    let newOpacity = (currentOpacity + 0.1);
+                    let newBoxRGB = 'rgba(0, 0, 0, ' + newOpacity + ')';
+                    newBox.style.backgroundColor = newBoxRGB;
+                }
             }
         });
         newRow.appendChild(newBox)
